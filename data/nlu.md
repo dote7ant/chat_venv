@@ -14,9 +14,9 @@
 - goodbye
 - see you around
 - see you later
-- cu 
-- have a nice day 
-- bye bye 
+- cu
+- have a nice day
+- bye bye
 
 ## intent:affirm
 - yes
@@ -24,7 +24,7 @@
 - of course
 - that sounds good
 - correct
-- y 
+- y
 - Y
 
 ## intent:deny
@@ -49,7 +49,7 @@
 - am good you
 - super stoked
 - extremely good
-- so so perfect 
+- so so perfect
 - so good
 
 ## intent:mood_unhappy
@@ -63,11 +63,10 @@
 - not very good
 - extremely sad
 - so sad
-- my day was horrible 
-- i don't feel very well 
+- my day was horrible
+- i don't feel very well
 - i am disappointed
 - super sad
-
 
 ## intent:bot_challenge
 - are you a bot?
@@ -97,9 +96,9 @@
 - Can the certificates be sent online?
 
 ## intent:Faqs_qualification
-- What qualifications should one have? 
+- What qualifications should one have?
 
-## intent:Faqs_appointment 
+## intent:Faqs_appointment
 - Can I book an appointment online?
 - Do I need to book an appointment to visit the institution?
 
@@ -120,7 +119,7 @@
 - What if I'm not familiar with programming at all?
 
 ## intent:Faqs_scholarships
-- Do you offer scholarships for your course? 
+- Do you offer scholarships for your course?
 
 ## intent:Faqs_differences
 - What differentiates Moringa School from the rest?
@@ -133,4 +132,3 @@
 
 ## intent:Faqs_Core
 - Can I start Moringa core directly without going through prep?
-
