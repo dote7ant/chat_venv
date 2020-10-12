@@ -22,12 +22,7 @@ pipeline:
 - name: FallbackClassifier
   threshold: 0.4
   ambiguity_threshold: 0.2
-- name: ResponseSelector
-  epochs: 100
-  retrieval_intent: faq
-- name: ResponseSelector
-  epochs: 100
-  retrieval_intent: chitchat
+
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
