@@ -1,151 +1,200 @@
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+version: "2.0"
+
 intents:
-- greet
-- goodbye
-- affirm
-- deny
-- mood_great
-- mood_unhappy
-- bot_challenge
-- Faqs_employment
-- Faqs_accomodation
-- Faqs_payment
-- Faqs_certificate
-- Faqs_qualification
-- Faqs_appointment
-- Faqs_class
-- Faqs_remote_learning
-- Faqs_Financial_aid
-- Faqs_international_students
-- Faqs_programming
-- Faqs_scholarships
-- Faqs_differences
-- Faqs_completion
-- Faqs_job
-- Faqs_core
-- Faqs_international students
-- Faqs_accommodation
-- Faqs_Core
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - faqs_employment
+  - faqs_payments
+  - pay
+  - installments
+  - full_
+  - faqs_certificates
+  - faqs_appointments
+  - faqs_accommodation
+  - faqs_remote_learning
+  - faqs_international_students
+  - faqs_core
+  - faqs_job
+  - faqs_financial_aid
+  - faqs_programming
+  - faqs_scholarship
+  - faqs_cert_completion
+  - faqs_diff
+  - faqs_classes
+  - faqs_moringa
+
 
 responses:
-  utter_greet:
-  - text: Hey! How are you?
-  - text: Howdy!
+  utter_faqs_employment:
+  - text: "No. What we guarantee is career-ready skills. Our courses are practical and relevant to the market. That is why many of our graduates find jobs. Moringa School offers support through training and informing graduates of job opportunities. Graduates then apply and some get these jobs. Other graduates have found jobs without our direct support while others have ventured into freelancing and entrepreneurship. Moringa School is proud to have helped all these brilliant young people achieve their career goals."
 
-  utter_cheer_up:
-  - image: https://i.imgur.com/nGF1K8f.jpg
-    text: 'Here is something to cheer you up:'
+  utter_pay:
+  - text: "Which class are you in? Hint Prep or Core"
+    buttons:
+    - title: "Prep"
+      payload: "utter_prep_price"
+    - title: "Core"
+      payload: "utter_core_price"
+  
+  utter_prep_price: 
+  - text: "The price of the prep class is ksh40, 500 however installments are not available!"
+
+  utter_core_price:
+  - text: "The price for the core classes is ksh140, 000. Paying in installments is available.:)"
+
+  utter_faqs_payments:
+  - text: "Which class are you in? Hint: Prep or Core"
+    buttons:
+    - title: "Prep"
+      payload: "utter_payment_prep"
+    - title: "Core"
+      payload: "utter_payment_core"
+
+  utter_payment_prep:
+  - text: "For prep classes we currently have no installment plans for payment. Students are required to pay an upfront amount fee of 40, 500 ksh on the last Friday before Prep class stars. One can pay via mpesa or bank deposit"
+
+  utter_payment_core:
+  - text: "For core classes we do have 4 monthly installements. Students can pay in installments or in full. One can pay via mpesa or bank deposit."
+
+  utter_installments:
+  - text: "How do you wish to pay for your course? Choose one."
+    buttons:
+    - tittle: "Installements"
+      payload: "utter_faqs_payment_installments"
+    - title: "Full payment"
+      payload: "utter_faqs_payment_full"
+
+  utter_faqs_payment_installments:
+  - text: "Paying in installments is only available to the core module classes where one can pay in four monthly installments."
+
+  utter_faqs_payment_full:
+  - text: "We grade student’s performance in Prep to enable graduation to Core class. This would mean payment can only be done after the successful completion of Prep. However, once in the core you can choose to pay the full amount upfront"
+
+  utter_faqs_certificates:
+  - text: "Yes. We are a Technical and Vocational Education and Training (TVET) school recognized by the Ministry of Education. However, we encourage our students to build a portfolio which is a better marketing tool e.g in a course like Software Development which involves coming up with independent projects that build up technical skills."
+
+  utter_faqs_appointments:
+  - text: "Yes, you can book your appointment online. In the calendar invite we sent, there is a link to a Google Hangouts link that we can use to facilitate the interview. Or we can schedule a google call with you at your own convenience."
+
+  utter_faqs_accommodation:
+  - text: "No, we currently don’t provide accommodation. We, however, have a number of private hostels along Ngong road, which are close to the school."
+
+  utter_faqs_remote_learning:
+  - text: "Moringa School’s remote classes are live; with daily sessions where learners ask questions and interact with tutors and fellow students."
+
+  utter_faqs_international_students:
+  - text: "Yes. We have students from across Africa and welcome students from around the world. "
+
+  utter_faqs_core:
+  - text: "Yes, but you are required to do an exam to test your proficiency to show you have the skills to do certain tasks depending on the course."
+
+  utter_faqs_job:
+  - text: "That depends on you! While we provide world-class teachers and experts to support you, the learning is on you. We put in our best and we expect you to put in yours as well. We do not guarantee jobs but we will help facilitate the process by assisting in your professional development, providing resume-writing workshops, optimizing your LinkedIn profile, conducting mock interviews and hosting a career day after the end of your Core program."
+
+  utter_faqs_financial_aid:
+  - text: "Yes. Financial aid was made available to students who need it when COVID-19 started"
+
+  utter_faqs_programming:
+  - text: "Our Moringa Prep course introduces you to basic programming. This course is for beginners to learn the fundamentals of programming and for more established developers to sharpen their grasp on front-end skills. 
+  Visit the (courses page)[https://moringaschool.com/courses] to learn more."
+
+  utter_faqs_scholarship:
+  - text: "We do not offer scholarships at the moment. However, we offer need-based flexible installment plans. Reach us on contact@moringaschool.com for further information."  
+
+  utter_faqs_cert_completion:
+  - text: "Yes, you will get a certificate after the successful completion of the program."
+
+  utter_faqs_diff:
+  - text: "At Moringa School, we believe in your potential. Like traditional universities, we teach you the theory to help you understand different coding languages and their importance. But the bulk of our course is focused on teaching you the practical skills necessary for the job market."
+
+  utter_faqs_courses:
+  - text: "Moringa offers two main courses"
+    custom:
+      payload: "collapsible"
+      data:
+      - title: Software development
+        description: "Being that much of what we do today revolves around technology and the software that powers it, the future is bright for software developers of all kinds. This course will help you to acquire a healthy balance of hard and soft skills needed to thrive as a software developer. No prior programming knowledge is needed for this course."
+      - title: Data science
+        description: "Learn Data Science and be one of the most in-demand professionals in the world. You’ll be taught by industry professionals with years of extensive practical work and teaching experience. The curriculum covers current technologies and real-world data sets and problem statements."
+
+  utter_faqs_classes:
+  - text: "Moringa structures its courses in two groups namely:"
+    custom:
+      payload: "collapsible"
+      data:
+      - title: Prep
+        description: "Prep classes are introductory, fundamental or basics driven classes. They are meant to equip beginners with the necessary skills for more advanced tasks and challenges."
+      - title: Core
+        description: "Core classes are those that the students learn more advanced tasks and tools."
+
+  utter_faqs_moringa:
+  - text: "Moringa School is a multi-disciplinary learning-accelerator committed to closing the skills gap in Africa’s job market by providing transformative tech-based learning. Our curriculum is industry specific and blends technical education with life skill development and practical experience. We promote excellence and a strong sense of community whilst delivering accelerated learning programs. Ultimately, we seek to unlock a learner’s potential and help them build futures with greater confidence, capability and possibility."
+
+  utter_ask_rephrase:
+  - text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
+  
+  utter_affirm:
+  - text: "Awesome"
+  
+  utter_greet:
+  - text: "Hey! How are you?"
 
   utter_did_that_help:
-  - text: Did that help you?
+  - text: "Did that help you?"
 
   utter_happy:
-  - text: Great, carry on!
+  - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: Bye
+  - text: "Bye"
 
   utter_iamabot:
-  - text: I am a Moringa faqs bot, powered by Rasa.
+  - text: "I am a Moringa FAQs bot, nice to make your aquintance."
 
-  utter_Faqs_employment:
-  - text: We guarantee career-ready skills.
-
-  utter_Faqs_accomodation:
-  - text: No, we currently don’t provide accommodation. We, however, have a number
-      of private hostels along Ngong road, which are close to the school.
-
-  utter_Faqs_payment:
-  - text: Yes. For our core modules, you can pay in 4 monthly installments.
-
-  utter_Faqs_certificate:
-  - text: Yes. We are a Technical and Vocational Education and Training (TVET) school
-      recognized by the Ministry of Education. However, we encourage our students
-      to build a portfolio which is a better marketing tool e.g in a course like Software
-      Development which involves coming up with independent projects that build up
-      technical skills.
-
-  utter_Faqs_qualification:
-  - text: We are currently registered under TVET (Technical and Vocational Education
-      and Training). We require all our students to have gone through high school
-      as is required by law (TVET) and should be computer proficient.
-
-  utter_Faqs_appointment:
-  - text: Yes, you can book your appointment online. In the calendar invite we sent,
-      there is a link to a Google Hangouts link that we can use to facilitate the
-      interview. Or we can schedule a google call with you at your own convenience
-
-  utter_Faqs_class:
-  - text: We grade student’s performance in Prep to enable graduation to Core class.
-      This would mean payment can only be done after the successful completion of
-      Prep. However, once in the core you can choose to pay the full amount upfront
-
-  utter_Faqs_remote_learning:
-  - text: Moringa School’s remote classes are live; with daily sessions where learners
-      ask questions and interact with tutors and fellow students.
-
-  utter_Faqs_Financial_aid:
-  - text: Yes. Financial aid was made available to students who need it when COVID-19
-      started.
-
-  utter_Faqs_international_students:
-  - text: 'Yes. We have students from across Africa and welcome students from around
-      the world.'
-  utter_Faqs_programming:
-  - text: Our Moringa Prep course introduces you to basic programming. This course
-      is for beginners to learn the fundamentals of programming and for more established
-      developers to sharpen their grasp on front-end skills. Visit the courses page
-      to learn more.
-
-  utter_Faqs_scholarships:
-  - text: We do not offer scholarships at the moment. However, we offer need-based
-      flexible installment plans. Reach us on contact@moringaschool.com for further
-      information.
-      
-  utter_Faqs_differences:
-  - text: At Moringa School, we believe in your potential. Like traditional universities,
-      we teach you the theory to help you understand different coding languages and
-      their importance. But the bulk of our course is focused on teaching you the
-      practical skills necessary for the job market.
-
-  utter_Faqs_completion:
-  - text: Yes, you will get a certificate after the successful completion of the program.
-
-  utter_Faqs_job:
-  - text: That depends on you! While we provide world-class teachers and experts to
-      support you, the learning is on you. We put in our best and we expect you to
-      put in yours as well. We do not guarantee jobs but we will help facilitate the
-      process by assisting in your professional development, providing resume-writing
-      workshops, optimizing your LinkedIn profile, conducting mock interviews and
-      hosting a career day after the end of your Core program
-
-  utter_Faqs_core:
-  - text: Yes, but you are required to do an exam to test your proficiency to show
-      you have the skills to do certain tasks depending on the course.
+  utter_out_of_scope:
+  - text: "Sorry I cant handle that yet!!!"
 
 
 actions:
+- utter_ask_rephrase
+- utter_affirm
 - utter_greet
 - utter_did_that_help
-- utter_iambot
 - utter_happy
-- utter_cheer_up
 - utter_goodbye
-- utter_Faqs_employment
-- utter_Faqs_accomodation
-- utter_Faqs_payment
-- utter_Faqs_certificate
-- utter_Faqs_qualification
-- utter_Faqs_appointment
-- utter_Faqs_class
-- utter_Faqs_remote_learning
-- utter_Faqs_Financial_aid
-- utter_Faqs_international_students
-- utter_Faqs_programming
-- utter_Faqs_scholarships
-- utter_Faqs_differences
-- utter_Faqs_completion
-- utter_Faqs_job
-- utter_Faqs_core
+- utter_iamabot
+- utter_out_of_scope
+- utter_faqs_employment
+- utter_pay
+- utter_prep_price
+- utter_core_price
+- utter_faqs_payments
+- utter_faqs_payment_prep
+- utter_faqs_payment_core
+- utter_installments
+- utter_faqs_payment_installments
+- utter_faqs_payment_full
+- utter_faqs_certificates
+- utter_faqs_appointments
+- utter_faqs_accommodation
+- utter_faqs_remote_learning
+- utter_faqs_international_students
+- utter_faqs_core
+- utter_faqs_job
+- utter_faqs_financial_aid
+- utter_faqs_programming
+- utter_faqs_scholarship
+- utter_faqs_cert_completion
+- utter_faqs_diff
+- utter_faqs_classes
+- utter_faqs_moringa
+- action_two_stage_fallback
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
